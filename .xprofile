@@ -1,0 +1,7 @@
+mpd &
+picom &
+dunst &
+xset r 300 50 &
+unclutter &
+urxvtd &
+feh --bg-fill ~/.config/wall.png

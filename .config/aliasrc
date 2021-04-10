@@ -1,0 +1,46 @@
+#!/bin/sh
+
+alias \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    rm="rm -v" \
+    df="df -h" \
+    mkd="mkdir -pv" \
+    free="free -h" \
+    du="duviz" \
+    yt="youtube-dl --add-metadata -i" \
+    yta="yt -x -f bestaudio/best" \
+    ffmpeg="ffmpeg -hide_banner" \
+    ls="ls -hN --color=auto --group-directories-first" \
+    sl="ls" \
+    l="ls -ahls --color=auto" \
+    shred="shred -zf" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi" \
+    dir="dir --color=auto" \
+    wget="wget -c --user-agent 'noleak'" \
+    dd="dd status=progress" \
+    ka="killall" \
+    gcl="git clone" \
+    gco="git commit -m" \
+    gdi="git diff" \
+    YT="youtube-viewer" \
+    sdn="sudo shutdown -h now" \
+    trem="transmission-remote" \
+    f="$FILE" \
+    v="$EDITOR" \
+    vi="vim" \
+    e="sudo emerge -a" \
+    er="sudo emerge -a --unmerge" \
+    es="sudo emerge -s" \
+    evs="eval `ssh-agent`" \
+    sa="ssh-add ~/.ssh/anunna" \
+    mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+    magit="vim -c MagitOnly" \
+    ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+    neofetch="neofetch --ascii_distro gentoo" \
+    '?'="duck" \
+    '??'="google" \
+    '???'="bing"
+
