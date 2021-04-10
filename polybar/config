@@ -1,0 +1,238 @@
+;======================;
+; .__    .   .         ;
+; [__) _ |  .|_  _.._. ;
+; |   (_)|\_|[_)(_][   ;
+;         ._|          ;
+;======================;
+
+;       .         
+;  _. _ | _ ._. __
+; (_.(_)|(_)[  _) 
+;
+[colors]
+background = #000000
+foreground = #ffffff
+theme = #84ae8b
+
+alert = #db7464
+alert-dimmed = #a53827
+alert-fg = #000000
+
+; ._ _  _.*._ 
+; [ | )(_]|[ )
+;
+[bar/skarphet]
+override-redirect = true
+bottom = true
+fixed-center = true
+radius = 10
+line-size = 3
+locale = tr_TR.UTF-8
+wm-restack = bspwm
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+width = 80% 
+height = 24
+offset-x = 10%
+offset-y = 7
+padding-left = 2
+padding-right= 2
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = B612:style=Regular:size=9;3
+font-1 = FiraMono Nerd Font:size=9;3
+
+modules-right = xkeyboard bspwm
+modules-left = title
+modules-center = cpu memory date eth battery wlan
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+scroll-up = bspc desktop -f prev.local
+scroll-down = bspc desktop -f next.local
+
+;    .        .             .
+; \./;_/ _   .|_  _  _.._. _|
+; /'\| \(/,\_|[_)(_)(_][  (_]
+;          ._|               
+;
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+format = <label-indicator>
+format-spacing = 0
+
+label-indicator = %name%
+label-indicator-on-capslock-foreground = ${colors.alert-fg}
+label-indicator-on-capslock-background = ${colors.alert}
+label-indicator-on-capslock = " caps lock "
+label-indicator-off-capslock =
+
+; .                   
+; |_  __._ .    ,._ _ 
+; [_)_) [_) \/\/ [ | )
+;       |             
+;
+[module/bspwm]
+type = internal/bspwm
+format = <label-state> <label-mode> 
+
+label-focused = "  %name%  "
+label-focused-underline = ${colors.theme}
+
+label-occupied = "  %name%  "
+label-empty = ""
+label-urgent = "  %name%  "
+label-urgent-background = ${colors.background}
+
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+
+;  ,   , .   
+; -+-*-+-| _ 
+;  | | | |(/,
+; 
+[module/title]
+type = internal/xwindow
+format =   <label>
+format-foreground = ${colors.theme} 
+
+label = %title%
+label-foreground = ${colors.foreground}
+label-maxlen = 50
+label-empty = K55VD
+label-empty-foreground = ${colors.foreground}
+         
+;  _.._ . .
+; (_.[_)(_|
+;    |     
+; 
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+label = "%{A1:urxvt -e htop --sort-key=PERCENT_CPU:}%percentage:2%%%{A} "
+
+; ._ _  _ ._ _  _ ._.  .
+; [ | )(/,[ | )(_)[  \_|
+;                    ._|
+; 
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "  "
+format-prefix-background = ${colors.background}
+format-prefix-foreground = ${colors.foreground}
+label = "%{A1:urxvt -e htop --sort-key=PERCENT_MEM:}%percentage_used%%%{A}"
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+
+;        ,             .  
+; ._  _ -+-.    , _ ._.;_/
+; [ )(/, |  \/\/ (_)[  | \
+; 
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-background = ${colors.background}
+format-connected-foreground = ${colors.foreground}
+label-connected = "%{A1:urxvt -e sudo wifi-menu:} %essid%%{A} "
+label-connected-background = ${colors.background}
+label-connected-foreground = ${colors.foreground}
+
+format-disconnected = " bağlantı yok"
+format-disconnected-background = ${colors.background}
+format-disconnected-foreground = ${colors.foreground}
+
+ramp-signal-0 = " "
+ramp-signal-foreground = ${colors.foreground}
+
+;  ,          
+; -+-*._ _  _ 
+;  | |[ | )(/,
+; 
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %d %B %Y %a "
+
+time = %H:%M
+time-alt = | %H:%M:%S
+
+;format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+
+label = "%date% %time%"
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+
+; .      ,  ,          
+; |_  _.-+--+- _ ._.  .
+; [_)(_] |  | (/,[  \_|
+;                   ._|
+; 
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 100
+
+label-charging = "%percentage%%"
+label-charging-background = ${colors.background}
+label-charging-foreground = ${colors.foreground}
+
+label-discharging = "%percentage%%"
+label-discharging-background = ${colors.background}
+label-discharging-foreground = ${colors.foreground}
+
+format-charging = <animation-charging>  <label-charging>
+format-charging-background = ${colors.background}
+format-charging-foreground = ${colors.foreground}
+
+format-discharging = <ramp-capacity>  <label-discharging>
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.foreground}
+
+label-full = "doldu"
+label-full-background = ${colors.background}
+label-full-foreground = ${colors.foreground}
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+format-full-prefix-background = ${colors.background}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-background = ${colors.background}
+
+animation-charging-0 = 
+animation-charging-framerate = 3600
+animation-charging-foreground = ${colors.foreground}
+animation-charging-background = ${colors.background}
+
+;     ,       
+;  _ -+- _.   
+; (/, | (_. *
+; 
+[settings]
+screenchange-reload = true
