@@ -1,7 +1,7 @@
 # Profile file. Runs on login. Environmental variables are set here.
 
 # Adds `~/scripts/bin` to $PATH
-export PATH="$PATH:$(du "$HOME/scripts/bin/" | cut -f2 | paste -sd ':')"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="vim"
