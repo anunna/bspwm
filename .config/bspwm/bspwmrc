@@ -2,7 +2,10 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # workspace names
-bspc monitor -d 1 2 3 4 5 6 7 8 9
+bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
+bspc monitor DP1-3 -d 1 2 3 4 5 6 7 8 9
+bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9
+#bspc monitor -d 1 2 3 4 5
 
 # basic settings
 bspc config window_gap		12
@@ -22,13 +25,13 @@ bspc config focused_border_color	\#517b58
 bspc config normal_border_color		\#517b58
 
 # mouse settings
-bspc config pointer_modifier mod1
+bspc config pointer_modifier mod4
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_corner
 
 # startup
 picom -b
-$HOME/.config/feh/.fehbg
+feh --bg-fill $HOME/.config/wall.png
 $HOME/.config/polybar/launch.sh
 dunst &
 
