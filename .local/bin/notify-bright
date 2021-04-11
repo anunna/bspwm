@@ -1,0 +1,16 @@
+#!/bin/bash
+case $1 in
+	down)
+	  xbacklight -dec 5
+	  dunstify --urgency=LOW -r 64983 "  parlaklık %$(xbacklight | sed 's/[.].*//g')"
+	;;
+
+	up)
+	  xbacklight -inc 5
+	  dunstify --urgency=LOW -r 64983 "  parlaklık %$(xbacklight | sed 's/[.].*//g')"
+	;;
+
+	*)
+	  dunstify --urgency=LOW -r 64983 "  parlaklık %$(xbacklight | sed 's/[.].*//g')"
+	;;
+esac
