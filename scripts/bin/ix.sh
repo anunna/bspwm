@@ -1,9 +1,0 @@
-#!/bin/sh
-
-
-if [ -n "$1" ]; then
-    curl "ix.io/$1"
-    exit 0
-fi
-
-curl -F 'f:1=<-' ix.io
