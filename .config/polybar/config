@@ -10,15 +10,15 @@
 ; (_.(_)|(_)[  _) 
 ;
 [colors]
-background = #000000
+background = #271C2F
 foreground = #ffffff
-theme = #84ae8b
+theme = #FE815F
 
-alert = #db7464
-alert-dimmed = #a53827
+alert = #AB99BA
+alert-dimmed = #D2605D
 alert-fg = #000000
 
-; ._ _  _.*._ 
+; ._ _  _.*._
 ; [ | )(_]|[ )
 ;
 [bar/skarphet]
@@ -27,13 +27,15 @@ bottom = true
 fixed-center = true
 radius = 10
 line-size = 3
-locale = tr_TR.UTF-8
+locale = en_US.UTF-8
 wm-restack = bspwm
-
+monitor = DP1-3
+monitor-fallback = eDP-1
+monitor-strict = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-width = 80% 
+width = 80%
 height = 24
 offset-x = 10%
 offset-y = 7
@@ -42,12 +44,11 @@ padding-right= 2
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = B612:style=Regular:size=9;3
-font-1 = FiraMono Nerd Font:size=9;3
+font-0 = JetBrainsMonoMedium Nerd Font:style=Regular:size=9;3
 
 modules-right = xkeyboard bspwm
 modules-left = title
-modules-center = cpu memory date eth battery wlan
+modules-center = cpu memory date battery wlan
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -107,7 +108,7 @@ format-foreground = ${colors.theme}
 label = %title%
 label-foreground = ${colors.foreground}
 label-maxlen = 50
-label-empty = K55VD
+label-empty = Hack something?
 label-empty-foreground = ${colors.foreground}
          
 ;  _.._ . .
@@ -122,7 +123,7 @@ format-prefix-foreground = ${colors.foreground}
 format-prefix-background = ${colors.background}
 label-background = ${colors.background}
 label-foreground = ${colors.foreground}
-label = "%{A1:urxvt -e htop --sort-key=PERCENT_CPU:}%percentage:2%%%{A} "
+label = "%{A1:urxvtc -e htop --sort-key=PERCENT_CPU:}%percentage:2%%%{A} "
 
 ; ._ _  _ ._ _  _ ._.  .
 ; [ | )(/,[ | )(_)[  \_|
@@ -134,7 +135,7 @@ interval = 2
 format-prefix = "  "
 format-prefix-background = ${colors.background}
 format-prefix-foreground = ${colors.foreground}
-label = "%{A1:urxvt -e htop --sort-key=PERCENT_MEM:}%percentage_used%%%{A}"
+label = "%{A1:urxvtc -e htop --sort-key=PERCENT_MEM:}%percentage_used%%%{A}"
 label-background = ${colors.background}
 label-foreground = ${colors.foreground}
 
@@ -150,11 +151,11 @@ interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.foreground}
-label-connected = "%{A1:urxvt -e sudo wifi-menu:} %essid%%{A} "
+label-connected = "%{A1:urxvtc -e sudo wifi-menu:} %essid%%{A} "
 label-connected-background = ${colors.background}
 label-connected-foreground = ${colors.foreground}
 
-format-disconnected = " bağlantı yok"
+format-disconnected = " Not Connected"
 format-disconnected-background = ${colors.background}
 format-disconnected-foreground = ${colors.foreground}
 
@@ -169,10 +170,10 @@ ramp-signal-foreground = ${colors.foreground}
 type = internal/date
 interval = 5
 
-date =
+date = " %d %B %Y %a "
 date-alt = " %d %B %Y %a "
 
-time = %H:%M
+time = " %H:%M "
 time-alt = | %H:%M:%S
 
 ;format-prefix = " "
@@ -210,7 +211,7 @@ format-discharging = <ramp-capacity>  <label-discharging>
 format-discharging-background = ${colors.background}
 format-discharging-foreground = ${colors.foreground}
 
-label-full = "doldu"
+label-full = "Full"
 label-full-background = ${colors.background}
 label-full-foreground = ${colors.foreground}
 format-full-prefix = " "
