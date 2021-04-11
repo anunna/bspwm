@@ -20,6 +20,10 @@ eval $(dbus-launch --sh-syntax --exit-with-session bspwm)
 
 exec bspwm
 
+# Cursor fix for bspwm
+
+exec xsetroot -cursor_name left_ptr
+
 # wallpaper
 
 exec feh --bg-fill ~/.config/wall.png
