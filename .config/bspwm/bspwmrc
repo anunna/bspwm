@@ -2,18 +2,18 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # workspace names
-bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
+bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9
 bspc monitor DP1-3 -d 1 2 3 4 5 6 7 8 9
-bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9
-#bspc monitor -d 1 2 3 4 5
+bspc monitor HDMI1 -d 1 2 3 4 5 6 7 8 9
+bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 # basic settings
 bspc config window_gap		12
 bspc config split_ratio		0.52
 bspc config borderless_monocle	true
 bspc config gapless_monocle	true
-bspc config top_padding 	0
-bspc config bottom_padding	27
+bspc config top_padding 	28
+bspc config bottom_padding	0
 bspc config border_width	0
 
 # pointer and focus follow each other
@@ -32,7 +32,7 @@ bspc config pointer_action2 resize_corner
 # startup
 picom -b
 feh --bg-fill $HOME/.config/wall.png
-$HOME/.config/polybar/launch.sh
+$HOME/.config/polybar/launch_polybar.sh
 dunst &
 
 # rules
