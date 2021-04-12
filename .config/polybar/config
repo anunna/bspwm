@@ -23,32 +23,34 @@ alert-fg = #000000
 ;
 [bar/skarphet]
 override-redirect = true
-bottom = true
+#bottom = true
+top = true
 fixed-center = true
-radius = 10
+radius = 5
 line-size = 3
 locale = en_US.UTF-8
 wm-restack = bspwm
-monitor = DP1-3
+monitor = ${env:MONITOR:}
 monitor-fallback = eDP-1
-monitor-strict = true
+#monitor-strict = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 width = 80%
-height = 24
+height = 27
 offset-x = 10%
 offset-y = 7
 padding-left = 2
 padding-right= 2
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = JetBrainsMonoMedium Nerd Font:style=Regular:size=9;3
+font-0 = JetBrainsMonoMedium Nerd Font:style=Regular:size=10
 
-modules-right = xkeyboard bspwm
-modules-left = title
-modules-center = cpu memory date battery wlan
+modules-right = cpu memory date battery wlan
+#modules-right = xkeyboard bspwm battery date
+modules-left = bspwm title
+modules-center = xkeyboard
 
 cursor-click = pointer
 cursor-scroll = ns-resize
